@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    username: root
+#    pulled from system env variable: export COM_GOHENRY_MYSQL_PASSWORD=secret-pass
+    password: ${com.gohenry.mysql.password}
+    url: jdbc:mysql://localhost:3321/spotify?serverTimezone=EET
+  application:
+    name: "Our super Spring Boot app"
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+
+info:
+  description: GoHenry Authentication Service
+  name: ${spring.application.name}
+
+
+server:
+  port: 8888
+
+
+com:
+  gohenry:
+    firebase:
+      url: http://firebase
+      user: johnny
+    mysql:
+      schema: schema
+      host: 122.72.21.2
+      port: 3306
+      password: secret-pass
+    test: "testing our app"
+
+
